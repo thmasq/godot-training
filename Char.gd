@@ -13,21 +13,37 @@ func _physics_process(_delta):
 	apply_gravity()
 	var input = Vector2.ZERO
 	input.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+	
+	
 	if input.x == 0:
 		apply_friction()
+		$AnimatedSprite.animation = "idle"
 	else:
 		apply_acceleration(input.x)
+		$AnimatedSprite.animation = "run"
+		if input.x > 0:
+			$AnimatedSprite.flip_h = true
+		elif input.x < 0:
+			$AnimatedSprite.flip_h = false
+	
 	if is_on_floor():
 		fast_fell = false
 		if Input.is_action_just_pressed("ui_up"):
 			velocity.y = JUMP_FORCE
 	else:
+		$AnimatedSprite.animation = "jump"
 		if Input.is_action_just_released("ui_up") and velocity.y < JUMP_RELEASE_FORCE:
 			velocity.y = JUMP_RELEASE_FORCE
 		if velocity.y > 10 and not fast_fell:
 			velocity.y += ADDITIONAL_FALL_GRAVITY
 		fast_fell = true
+	
+	var was_in_air = not is_on_floor()
 	velocity = move_and_slide(velocity, Vector2.UP)
+	var just_landed = is_on_floor() and was_in_air
+	if just_landed:
+		$AnimatedSprite.animation = "run"
+		$AnimatedSprite.frame = 1
 
 func apply_gravity():
 		velocity.y += GRAVITY
