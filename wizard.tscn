@@ -5,9 +5,6 @@
 [ext_resource path="res://wizard.gd" type="Script" id=3]
 [ext_resource path="res://Jump.png" type="Texture" id=4]
 
-[sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 14.5, 21.5 )
-
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 29, 43 )
@@ -90,15 +87,22 @@ animations = [ {
 "speed": 7.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 9.5, 19.75 )
+
 [node name="wizard" type="KinematicBody2D"]
 script = ExtResource( 3 )
+JUMP_FORCE = -351
 MAX_SPEED = 149
-
-[node name="wizard_hitbox" type="CollisionShape2D" parent="."]
-shape = SubResource( 7 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 14 )
-animation = "run"
-frame = 7
+animation = "idle"
+frame = 4
 playing = true
+
+[node name="wizard_hitbox" type="CollisionShape2D" parent="."]
+position = Vector2( -2.5, 1.75 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+shape = SubResource( 7 )
