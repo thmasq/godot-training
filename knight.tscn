@@ -1,10 +1,11 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://CharacterSprites/Knight/KnightIdle.png" type="Texture" id=1]
 [ext_resource path="res://knight.gd" type="Script" id=2]
 [ext_resource path="res://CharacterSprites/Knight/KnightJump.png" type="Texture" id=3]
 [ext_resource path="res://CharacterSprites/Knight/KnightRun.png" type="Texture" id=4]
 [ext_resource path="res://CharacterSprites/Knight/KnightAttack.png" type="Texture" id=5]
+[ext_resource path="res://CharacterSprites/Knight/KnightDash.png" type="Texture" id=6]
 
 [sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 5 )
@@ -27,6 +28,46 @@ atlas = ExtResource( 5 )
 region = Rect2( 560, 0, 140, 140 )
 
 [sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 5 )
+region = Rect2( 700, 0, 140, 140 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 140, 140 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 6 )
+region = Rect2( 140, 0, 140, 140 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 6 )
+region = Rect2( 280, 0, 140, 140 )
+
+[sub_resource type="AtlasTexture" id=35]
+atlas = ExtResource( 6 )
+region = Rect2( 420, 0, 140, 140 )
+
+[sub_resource type="AtlasTexture" id=36]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 140, 140 )
+
+[sub_resource type="AtlasTexture" id=37]
+atlas = ExtResource( 5 )
+region = Rect2( 140, 0, 140, 140 )
+
+[sub_resource type="AtlasTexture" id=38]
+atlas = ExtResource( 5 )
+region = Rect2( 280, 0, 140, 140 )
+
+[sub_resource type="AtlasTexture" id=39]
+atlas = ExtResource( 5 )
+region = Rect2( 420, 0, 140, 140 )
+
+[sub_resource type="AtlasTexture" id=40]
+atlas = ExtResource( 5 )
+region = Rect2( 560, 0, 140, 140 )
+
+[sub_resource type="AtlasTexture" id=41]
 atlas = ExtResource( 5 )
 region = Rect2( 700, 0, 140, 140 )
 
@@ -129,6 +170,11 @@ animations = [ {
 "name": "attack",
 "speed": 10.0
 }, {
+"frames": [ SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ) ],
+"loop": true,
+"name": "dash",
+"speed": 10.0
+}, {
 "frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
 "loop": true,
 "name": "idle",
@@ -153,7 +199,7 @@ script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-animation = "attack"
+animation = "idle"
 frame = 5
 playing = true
 
