@@ -217,8 +217,8 @@ MAX_SPEED = 150
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 3, 3.53 )
 frames = SubResource( 11 )
-animation = "run"
-frame = 5
+animation = "idle"
+frame = 2
 playing = true
 __meta__ = {
 "_edit_lock_": true

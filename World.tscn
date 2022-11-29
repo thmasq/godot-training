@@ -102,4 +102,4 @@ JUMP_FORCE = -350
 MAX_SPEED = 150
 
 [node name="Boss1" parent="." instance=ExtResource( 4 )]
-position = Vector2( 126.685, 145.433 )
+position = Vector2( 127.685, 146.433 )

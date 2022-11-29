@@ -242,17 +242,16 @@ JUMP_FORCE = -351
 MAX_SPEED = 149
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( -2, 1 )
+position = Vector2( 4, -2.54 )
 frames = SubResource( 14 )
 animation = "idle"
-frame = 4
+frame = 1
 playing = true
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="wizard_hitbox" type="CollisionShape2D" parent="."]
-position = Vector2( -5.44313, 3.49873 )
 rotation = -3.14159
 scale = Vector2( 1, -1 )
 shape = SubResource( 7 )
