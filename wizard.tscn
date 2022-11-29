@@ -230,7 +230,7 @@ animations = [ {
 "frames": [ SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ) ],
 "loop": true,
 "name": "run",
-"speed": 7.0
+"speed": 8.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=7]
@@ -245,8 +245,11 @@ MAX_SPEED = 149
 position = Vector2( -2, 1 )
 frames = SubResource( 14 )
 animation = "idle"
-frame = 2
+frame = 4
 playing = true
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="wizard_hitbox" type="CollisionShape2D" parent="."]
 position = Vector2( -5.44313, 3.49873 )

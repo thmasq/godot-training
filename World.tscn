@@ -92,7 +92,7 @@ position = Vector2( 51, 178 )
 position = Vector2( 69, 178 )
 
 [node name="knight" parent="." instance=ExtResource( 2 )]
-position = Vector2( 70, 104 )
+position = Vector2( 78, 83 )
 JUMP_FORCE = -350
 MAX_SPEED = 150
 
@@ -102,4 +102,4 @@ JUMP_FORCE = -350
 MAX_SPEED = 150
 
 [node name="Boss1" parent="." instance=ExtResource( 4 )]
-position = Vector2( 122, 149 )
+position = Vector2( 126.685, 145.433 )

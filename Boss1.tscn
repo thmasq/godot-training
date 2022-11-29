@@ -202,23 +202,28 @@ animations = [ {
 "frames": [ SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ) ],
 "loop": true,
 "name": "run",
-"speed": 7.0
+"speed": 8.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 7, 22.5 )
 
 [node name="Boss1" type="KinematicBody2D"]
+position = Vector2( -1, -1 )
 script = ExtResource( 2 )
 JUMP_FORCE = -350
 MAX_SPEED = 150
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 3, 3.53 )
 frames = SubResource( 11 )
-animation = "idle"
+animation = "run"
 frame = 5
 playing = true
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -2, -2.5 )
+position = Vector2( 1, 1 )
 shape = SubResource( 12 )
