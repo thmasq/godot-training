@@ -91,15 +91,15 @@ position = Vector2( 51, 178 )
 [node name="Block16" parent="." instance=ExtResource( 1 )]
 position = Vector2( 69, 178 )
 
-[node name="knight" parent="." instance=ExtResource( 2 )]
-position = Vector2( 78, 83 )
-JUMP_FORCE = -350
-MAX_SPEED = 150
-
 [node name="wizard" parent="." instance=ExtResource( 3 )]
 position = Vector2( 171, 83 )
 JUMP_FORCE = -350
 MAX_SPEED = 150
 
+[node name="knight" parent="." instance=ExtResource( 2 )]
+position = Vector2( 78, 83 )
+JUMP_FORCE = -350
+MAX_SPEED = 150
+
 [node name="Boss1" parent="." instance=ExtResource( 4 )]
-position = Vector2( 127.685, 146.433 )
+position = Vector2( 126, 145 )
