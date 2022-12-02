@@ -22,6 +22,10 @@ window/size/test_width=1280
 window/size/test_height=720
 window/stretch/mode="2d"
 
+[global]
+
+screen=false
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
@@ -99,4 +103,7 @@ common/enable_pause_aware_picking=true
 [rendering]
 
 quality/driver/driver_name="GLES2"
+threads/thread_model=2
+misc/lossless_compression/force_png=true
+quality/depth/hdr=false
 environment/default_environment="res://default_env.tres"
