@@ -1,9 +1,9 @@
 extends KinematicBody2D
 var velocity = Vector2.ZERO
 var fast_fell = false
-export(int) var JUMP_FORCE = -300
+export(int) var JUMP_FORCE = -350
 export(int) var JUMP_RELEASE_FORCE = -60
-export(int) var MAX_SPEED = 100
+export(int) var MAX_SPEED = 150
 export(int) var ACCELERATION = 10
 export(int) var FRICTION = 30
 export(int) var ADDITIONAL_FALL_GRAVITY = 40

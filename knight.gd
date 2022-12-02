@@ -1,9 +1,9 @@
 extends KinematicBody2D
 var velocity = Vector2.ZERO
 var fast_fell = false
-export(int) var JUMP_FORCE = -300
+export(int) var JUMP_FORCE = -350
 export(int) var JUMP_RELEASE_FORCE = -60
-export(int) var MAX_SPEED = 100
+export(int) var MAX_SPEED = 150
 export(int) var ACCELERATION = 10
 export(int) var FRICTION = 30
 export(int) var ADDITIONAL_FALL_GRAVITY = 40
@@ -14,17 +14,22 @@ func _physics_process(_delta):
 	var input = Vector2.ZERO
 	input.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	
-	
-	if input.x == 0:
+	if Input.is_action_just_pressed("ui_attack_1"):
+		$AnimatedSprite.play('attack')
+	elif Input.is_action_just_pressed("ui_attack_2"):
+		$AnimatedSprite.play("dash")
+	elif input.x == 0:
 		apply_friction()
-		$AnimatedSprite.animation = "idle"
+		do_idle()
 	else:
 		apply_acceleration(input.x)
-		$AnimatedSprite.animation = "run"
+		$AnimatedSprite.play("run")
 		if input.x > 0:
 			$AnimatedSprite.flip_h = false
 		elif input.x < 0:
 			$AnimatedSprite.flip_h = true
+	if Input.is_action_just_pressed("ui_attack_1"):
+		$AnimatedSprite.play("attack")
 	
 	if is_on_floor():
 		fast_fell = false
@@ -44,6 +49,10 @@ func _physics_process(_delta):
 	if just_landed:
 		$AnimatedSprite.animation = "run"
 		$AnimatedSprite.frame = 1
+
+func do_idle():
+	if $AnimatedSprite.animation != 'idle':
+		$AnimatedSprite.play('idle')
 
 func apply_gravity():
 		velocity.y += GRAVITY
