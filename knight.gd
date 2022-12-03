@@ -12,22 +12,15 @@ export(int) var GRAVITY = 20
 func _physics_process(_delta):
 	apply_gravity()
 	var input = Vector2.ZERO
-	
 	input.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	
-	if Input.is_action_just_pressed("ui_attack_1"):
-		$AnimatedSprite.play('attack')
-	elif Input.is_action_just_pressed("ui_attack_2"):
-		$AnimatedSprite.play("dash")
-	elif $AnimatedSprite.animation != 'idle':
-		$AnimatedSprite.play('idle')
 	
 	if input.x == 0:
 		apply_friction()
+		$AnimatedSprite.animation = "idle"
 	else:
-		if $AnimatedSprite.animation != "attack" and $AnimatedSprite.animation != "dash":
-			$AnimatedSprite.animation = "run"
 		apply_acceleration(input.x)
+		$AnimatedSprite.animation = "run"
 		if input.x > 0:
 			$AnimatedSprite.flip_h = false
 		elif input.x < 0:
