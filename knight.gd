@@ -1,13 +1,13 @@
 extends KinematicBody2D
 var velocity = Vector2.ZERO
 var fast_fell = false
-export(int) var JUMP_FORCE = -350
+export(int) var JUMP_FORCE = -400
 export(int) var JUMP_RELEASE_FORCE = -60
 export(int) var MAX_SPEED = 150
 export(int) var ACCELERATION = 10
 export(int) var FRICTION = 30
 export(int) var ADDITIONAL_FALL_GRAVITY = 40
-export(int) var GRAVITY = 20
+export(int) var GRAVITY = 25
 
 func _physics_process(_delta):
 	apply_gravity()
@@ -47,6 +47,7 @@ func _physics_process(_delta):
 
 func apply_gravity():
 		velocity.y += GRAVITY
+		velocity.y = min(velocity.y, 400)
 
 func apply_friction():
 	velocity.x = move_toward(velocity.x, 0, FRICTION )
