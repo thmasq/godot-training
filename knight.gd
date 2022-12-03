@@ -1,3 +1,4 @@
+class_name Knight
 extends KinematicBody2D
 var velocity = Vector2.ZERO
 var fast_fell = false
@@ -17,10 +18,12 @@ func _physics_process(_delta):
 	
 	if input.x == 0:
 		apply_friction()
-		$AnimatedSprite.animation = "idle"
+		if $AnimatedSprite.animation != "attack":
+			$AnimatedSprite.play("idle")
 	else:
 		apply_acceleration(input.x)
-		$AnimatedSprite.animation = "run"
+		if $AnimatedSprite.animation != "attack":
+			$AnimatedSprite.play("run")
 		if input.x > 0:
 			$AnimatedSprite.flip_h = false
 		elif input.x < 0:
@@ -31,18 +34,22 @@ func _physics_process(_delta):
 		if Input.is_action_just_pressed("ui_up"):
 			velocity.y = JUMP_FORCE
 	else:
-		$AnimatedSprite.animation = "jump"
+		$AnimatedSprite.play("jump")
 		if Input.is_action_just_released("ui_up") and velocity.y < JUMP_RELEASE_FORCE:
 			velocity.y = JUMP_RELEASE_FORCE
 		if velocity.y > 10 and not fast_fell:
 			velocity.y += ADDITIONAL_FALL_GRAVITY
 		fast_fell = true
 	
+	if is_on_floor() and Input.is_action_just_pressed("ui_attack_1") and $AnimatedSprite.animation == "idle":
+		$AnimatedSprite.play("attack")
+		
+		
 	var was_in_air = not is_on_floor()
 	velocity = move_and_slide(velocity, Vector2.UP)
 	var just_landed = is_on_floor() and was_in_air
 	if just_landed:
-		$AnimatedSprite.animation = "run"
+		$AnimatedSprite.play("idle")
 		$AnimatedSprite.frame = 1
 
 func apply_gravity():
@@ -54,4 +61,3 @@ func apply_friction():
 	
 func apply_acceleration(ammount):
 	velocity.x = move_toward(velocity.x, MAX_SPEED*ammount, ACCELERATION)
-	

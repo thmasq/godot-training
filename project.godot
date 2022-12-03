@@ -8,6 +8,28 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Boss",
+"language": "GDScript",
+"path": "res://boss1.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Knight",
+"language": "GDScript",
+"path": "res://knight.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Wizard",
+"language": "GDScript",
+"path": "res://wizard.gd"
+} ]
+_global_script_class_icons={
+"Boss": "",
+"Knight": "",
+"Wizard": ""
+}
+
 [application]
 
 config/name="Tuto"
@@ -16,7 +38,6 @@ config/icon="res://icon.png"
 
 [debug]
 
-settings/stdout/print_fps=true
 settings/stdout/verbose_stdout=true
 
 [display]
@@ -118,5 +139,6 @@ quality/reflections/texture_array_reflections=false
 quality/reflections/high_quality_ggx=false
 quality/shading/force_vertex_shading.mobile=false
 quality/shading/force_lambert_over_burley.mobile=false
+environment/default_clear_color=Color( 0.0588235, 0.580392, 0.631373, 1 )
 quality/depth/hdr=false
 environment/default_environment="res://default_env.tres"

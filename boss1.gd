@@ -1,3 +1,4 @@
+class_name Boss
 extends KinematicBody2D
 var velocity = Vector2.ZERO
 var fast_fell = false
