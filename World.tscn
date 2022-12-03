@@ -99,5 +99,7 @@ MAX_SPEED = 150
 [node name="knight" parent="." instance=ExtResource( 2 )]
 position = Vector2( 78, 83 )
 
+[node name="Camera2D" type="Camera2D" parent="knight"]
+
 [node name="Boss1" parent="." instance=ExtResource( 4 )]
 position = Vector2( 137, 145 )

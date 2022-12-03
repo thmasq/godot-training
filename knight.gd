@@ -12,24 +12,26 @@ export(int) var GRAVITY = 20
 func _physics_process(_delta):
 	apply_gravity()
 	var input = Vector2.ZERO
+	
 	input.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	
 	if Input.is_action_just_pressed("ui_attack_1"):
 		$AnimatedSprite.play('attack')
 	elif Input.is_action_just_pressed("ui_attack_2"):
 		$AnimatedSprite.play("dash")
-	elif input.x == 0:
+	elif $AnimatedSprite.animation != 'idle':
+		$AnimatedSprite.play('idle')
+	
+	if input.x == 0:
 		apply_friction()
-		do_idle()
 	else:
+		if $AnimatedSprite.animation != "attack" and $AnimatedSprite.animation != "dash":
+			$AnimatedSprite.animation = "run"
 		apply_acceleration(input.x)
-		$AnimatedSprite.play("run")
 		if input.x > 0:
 			$AnimatedSprite.flip_h = false
 		elif input.x < 0:
 			$AnimatedSprite.flip_h = true
-	if Input.is_action_just_pressed("ui_attack_1"):
-		$AnimatedSprite.play("attack")
 	
 	if is_on_floor():
 		fast_fell = false
@@ -49,10 +51,6 @@ func _physics_process(_delta):
 	if just_landed:
 		$AnimatedSprite.animation = "run"
 		$AnimatedSprite.frame = 1
-
-func do_idle():
-	if $AnimatedSprite.animation != 'idle':
-		$AnimatedSprite.play('idle')
 
 func apply_gravity():
 		velocity.y += GRAVITY

@@ -171,7 +171,7 @@ animations = [ {
 "speed": 10.0
 }, {
 "frames": [ SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ) ],
-"loop": true,
+"loop": false,
 "name": "dash",
 "speed": 10.0
 }, {
@@ -201,7 +201,7 @@ script = ExtResource( 2 )
 position = Vector2( 0, 6.54 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 10
+frame = 3
 playing = true
 __meta__ = {
 "_edit_lock_": true
