@@ -61,3 +61,6 @@ func apply_friction():
 	
 func apply_acceleration(ammount):
 	velocity.x = move_toward(velocity.x, MAX_SPEED*ammount, ACCELERATION)
+
+func _on_AnimatedSprite_animation_finished():
+	$AnimatedSprite.play("idle")
