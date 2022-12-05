@@ -18,11 +18,11 @@ func _physics_process(_delta):
 	
 	if input.x == 0:
 		apply_friction()
-		if $AnimatedSprite.animation != "attack":
+		if $AnimatedSprite.animation != "attack" and $AnimatedSprite.animation != "dash":
 			$AnimatedSprite.play("idle")
 	else:
 		apply_acceleration(input.x)
-		if $AnimatedSprite.animation != "attack":
+		if $AnimatedSprite.animation != "dash":
 			$AnimatedSprite.play("run")
 		if input.x > 0:
 			$AnimatedSprite.flip_h = false
@@ -41,8 +41,10 @@ func _physics_process(_delta):
 			velocity.y += ADDITIONAL_FALL_GRAVITY
 		fast_fell = true
 	
-	if is_on_floor() and Input.is_action_just_pressed("ui_attack_1") and $AnimatedSprite.animation == "idle":
+	if is_on_floor() and Input.is_action_just_pressed("ui_attack_1"):
 		$AnimatedSprite.play("attack")
+	if is_on_floor() and Input.is_action_just_pressed("ui_attack_2"):
+		$AnimatedSprite.play("dash")
 		
 		
 	var was_in_air = not is_on_floor()
