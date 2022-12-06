@@ -43,7 +43,7 @@ func _physics_process(_delta):
 	
 	if is_on_floor() and Input.is_action_just_pressed("ui_attack_1") and input.x == 0:
 		$AnimatedSprite.play("attack")
-	if is_on_floor() and Input.is_action_just_pressed("ui_attack_2"):
+	if is_on_floor() and Input.is_action_just_pressed("ui_attack_2") and input.x != 0:
 		$AnimatedSprite.play("dash")
 		
 		

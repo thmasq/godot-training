@@ -195,12 +195,12 @@ animations = [ {
 "frames": [ SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ) ],
 "loop": false,
 "name": "attack1",
-"speed": 5.0
+"speed": 13.0
 }, {
 "frames": [ SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ) ],
 "loop": false,
 "name": "attack2",
-"speed": 5.0
+"speed": 13.0
 }, {
 "frames": [ SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ), SubResource( 52 ), SubResource( 53 ) ],
 "loop": false,
@@ -234,7 +234,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 9.15511, 19.8843 )
+extents = Vector2( 9.66068, 19.5945 )
 
 [node name="wizard" type="KinematicBody2D"]
 script = ExtResource( 3 )
@@ -242,16 +242,15 @@ JUMP_FORCE = -351
 MAX_SPEED = 149
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 4, -2.54 )
 frames = SubResource( 14 )
 animation = "idle"
-frame = 1
+frame = 7
 playing = true
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="wizard_hitbox" type="CollisionShape2D" parent="."]
+position = Vector2( -2.43088, 2.94187 )
 rotation = -3.14159
 scale = Vector2( 1, -1 )
 shape = SubResource( 7 )
+
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
