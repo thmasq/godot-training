@@ -26,10 +26,10 @@ func _physics_process(_delta):
 			$AnimatedSprite.play("run")
 		if input.x > 0:
 			$AnimatedSprite.flip_h = false
-			$AnimatedSprite.flip_h = false
+			$CollisionShape2D.position = Vector2(1.5,1)
 		elif input.x < 0:
 			$AnimatedSprite.flip_h = true
-			$AnimatedSprite.flip_h = true
+			$CollisionShape2D.position = Vector2(4.5,1)
 	
 	if is_on_floor():
 		fast_fell = false
