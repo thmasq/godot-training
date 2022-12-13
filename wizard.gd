@@ -2,6 +2,7 @@ class_name Wizard
 extends KinematicBody2D
 var velocity = Vector2.ZERO
 var fast_fell = false
+var hit_possible = false
 export(int) var JUMP_FORCE = -400
 export(int) var JUMP_RELEASE_FORCE = -60
 export(int) var MAX_SPEED = 150
@@ -26,8 +27,12 @@ func _physics_process(_delta):
 			$AnimatedSprite.play("run")
 		if input.x > 0:
 			$AnimatedSprite.flip_h = false
+			$wizard_hitbox.position = Vector2(-4,3)
+			$Area2D/hitbox.position = Vector2(23.5,-10)
 		elif input.x < 0:
 			$AnimatedSprite.flip_h = true
+			$wizard_hitbox.position = Vector2(4,3)
+			$Area2D/hitbox.position = Vector2(-23.5,-10)
 	
 	if is_on_floor():
 		fast_fell = false
@@ -43,6 +48,8 @@ func _physics_process(_delta):
 	
 	if is_on_floor() and Input.is_action_just_pressed("ui_attack_1") and input.x == 0:
 		$AnimatedSprite.play("attack1")
+		if hit_possible:
+			print("hit")
 	if is_on_floor() and Input.is_action_just_pressed("ui_attack_2"):
 		$AnimatedSprite.play("attack2")
 		
@@ -66,3 +73,11 @@ func apply_acceleration(ammount):
 
 func _on_AnimatedSprite_animation_finished():
 	$AnimatedSprite.play("idle")
+
+func _on_Area2D_body_entered(body):
+	if body is Boss:
+		hit_possible = true
+
+func _on_Area2D_body_exited(body):
+	if body is Boss:
+		hit_possible = false
