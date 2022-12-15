@@ -2,6 +2,7 @@ class_name Boss
 extends KinematicBody2D
 var velocity = Vector2.ZERO
 var fast_fell = false
+var hit_possible = false
 export(int) var JUMP_FORCE = -400
 export(int) var JUMP_RELEASE_FORCE = -60
 export(int) var MAX_SPEED = 150
@@ -45,6 +46,8 @@ func _physics_process(_delta):
 	
 	if is_on_floor() and Input.is_action_just_pressed("ui_attack_1") and input.x == 0:
 		$AnimatedSprite.play("attack1")
+#		if hit_possible:
+#			print("hit")
 	if is_on_floor() and Input.is_action_just_pressed("ui_attack_2"):
 		$AnimatedSprite.play("attack2")
 		
@@ -68,3 +71,11 @@ func apply_acceleration(ammount):
 
 func _on_AnimatedSprite_animation_finished():
 	$AnimatedSprite.play("idle")
+
+#func _on_Area2D_body_entered(body):
+#	if body is Knight or body is Wizard:
+#		hit_possible = true
+#
+#func _on_Area2D_body_exited(body):
+#	if body is Knight or body is Wizard:
+#		hit_possible = false

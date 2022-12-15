@@ -1,3 +1,5 @@
+class_name Damage_Item
+
 extends Area2D
 
 func _on_spike_body_entered(body):
