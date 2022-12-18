@@ -17,11 +17,14 @@ MAX_SPEED = 150
 
 [node name="knight" parent="." instance=ExtResource( 2 )]
 process_priority = 9
-position = Vector2( 73, -27 )
+position = Vector2( 71, -20 )
 z_index = 9
 
+[node name="knight_view" type="Camera2D" parent="knight"]
+current = true
+
 [node name="boss1" parent="." instance=ExtResource( 4 )]
-position = Vector2( 119, 16 )
+position = Vector2( 121, -9 )
 z_index = 10
 
 [node name="spike" parent="." instance=ExtResource( 5 )]

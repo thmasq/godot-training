@@ -209,6 +209,7 @@ animations = [ {
 extents = Vector2( 7.5, 22.5 )
 
 [sub_resource type="RectangleShape2D" id=45]
+extents = Vector2( 49, 27.5 )
 
 [node name="boss1" type="KinematicBody2D"]
 position = Vector2( -1, -1 )
@@ -218,7 +219,7 @@ script = ExtResource( 2 )
 position = Vector2( 3, 3.53 )
 frames = SubResource( 11 )
 animation = "idle"
-frame = 1
+frame = 2
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -231,6 +232,7 @@ shape = SubResource( 44 )
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 6, -4.5 )
 shape = SubResource( 45 )
 
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

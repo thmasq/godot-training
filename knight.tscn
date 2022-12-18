@@ -204,7 +204,7 @@ script = ExtResource( 2 )
 position = Vector2( 0, 6.54 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 9
+frame = 7
 playing = true
 __meta__ = {
 "_edit_lock_": true
