@@ -9,20 +9,90 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Attack",
+"class": "AirAttack",
+"language": "GDScript",
+"path": "res://characters/Player/states/motions/combat/air-attack.gd"
+}, {
+"base": "Motion",
+"class": "Attack",
+"language": "GDScript",
+"path": "res://characters/Player/states/motions/combat/attack.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Boss",
 "language": "GDScript",
 "path": "res://boss1.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Character",
+"language": "GDScript",
+"path": "res://characters/commons/Character.gd"
+}, {
+"base": "Area2D",
+"class": "DamageZone",
+"language": "GDScript",
+"path": "res://characters/commons/DamageZone.gd"
 }, {
 "base": "Area2D",
 "class": "Damage_Item",
 "language": "GDScript",
 "path": "res://spike.gd"
 }, {
+"base": "State",
+"class": "Death",
+"language": "GDScript",
+"path": "res://characters/commons/states/motion/combat/death.gd"
+}, {
+"base": "State",
+"class": "GettingHit",
+"language": "GDScript",
+"path": "res://characters/commons/states/motion/combat/getting-hit.gd"
+}, {
+"base": "Node2D",
+"class": "Health",
+"language": "GDScript",
+"path": "res://characters/commons/Health.gd"
+}, {
+"base": "Motion",
+"class": "InAir",
+"language": "GDScript",
+"path": "res://characters/Player/states/motions/in-air/in-air.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Knight",
 "language": "GDScript",
 "path": "res://knight.gd"
+}, {
+"base": "Node2D",
+"class": "Momentum",
+"language": "GDScript",
+"path": "res://engine/Momentum.gd"
+}, {
+"base": "State",
+"class": "Motion",
+"language": "GDScript",
+"path": "res://characters/commons/states/motion/motion.gd"
+}, {
+"base": "Motion",
+"class": "OnGround",
+"language": "GDScript",
+"path": "res://characters/commons/states/motion/on-ground/on-ground.gd"
+}, {
+"base": "Node2D",
+"class": "Physics2D",
+"language": "GDScript",
+"path": "res://engine/Physics2D.gd"
+}, {
+"base": "Character",
+"class": "Player",
+"language": "GDScript",
+"path": "res://characters/Player/Player.gd"
+}, {
+"base": "Node",
+"class": "State",
+"language": "GDScript",
+"path": "res://characters/commons/states/state.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Wizard",
@@ -30,16 +100,30 @@ _global_script_classes=[ {
 "path": "res://wizard.gd"
 } ]
 _global_script_class_icons={
+"AirAttack": "",
+"Attack": "",
 "Boss": "",
+"Character": "",
+"DamageZone": "",
 "Damage_Item": "",
+"Death": "",
+"GettingHit": "",
+"Health": "",
+"InAir": "",
 "Knight": "",
+"Momentum": "",
+"Motion": "",
+"OnGround": "",
+"Physics2D": "",
+"Player": "",
+"State": "",
 "Wizard": ""
 }
 
 [application]
 
 config/name="Tuto"
-run/main_scene="res://Main_Menu.tscn"
+run/main_scene="res://interfaces/menu/Main_Menu.tscn"
 config/icon="res://icon.png"
 
 [debug]

@@ -1,5 +1,6 @@
 tool
 extends Control
+var level_manager = load("res://managers/LevelManager.gd").new()
 
 var resource: Resource
 var load_completed: bool = false
@@ -17,7 +18,7 @@ func set_progress(progress: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed('enter') and load_completed:
-		LevelManager.set_new_scene(resource)
+		level_manager.set_new_scene(resource)
 		queue_free()
 
 

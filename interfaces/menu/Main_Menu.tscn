@@ -2,7 +2,7 @@
 
 [ext_resource path="res://OtherAssets/Sprites/7628303.png" type="Texture" id=1]
 [ext_resource path="res://fonts/PixelColeco-4vJW.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Main_Menu.gd" type="Script" id=3]
+[ext_resource path="res://interfaces/menu/Main_Menu.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -44,21 +44,21 @@ margin_top = 17.0
 margin_right = 222.0
 margin_bottom = 151.0
 
-[node name="MenuButton" type="MenuButton" parent="CenterContainer/VBoxContainer"]
+[node name="Play" type="MenuButton" parent="CenterContainer/VBoxContainer"]
 margin_right = 144.0
 margin_bottom = 42.0
 custom_fonts/font = SubResource( 1 )
 text = "PLAY"
 expand_icon = true
 
-[node name="MenuButton2" type="MenuButton" parent="CenterContainer/VBoxContainer"]
+[node name="Credits" type="MenuButton" parent="CenterContainer/VBoxContainer"]
 margin_top = 46.0
 margin_right = 144.0
 margin_bottom = 88.0
 custom_fonts/font = SubResource( 2 )
 text = "CREDITS"
 
-[node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="CenterContainer/VBoxContainer"]
 margin_top = 92.0
 margin_right = 144.0
 margin_bottom = 134.0

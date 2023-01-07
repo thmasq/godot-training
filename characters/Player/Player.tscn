@@ -1,0 +1,187 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://characters/Player/Player.gd" type="Script" id=1]
+[ext_resource path="res://characters/Player/sprites/KnightIdle.png" type="Texture" id=2]
+[ext_resource path="res://engine/Momentum.gd" type="Script" id=3]
+[ext_resource path="res://engine/Physics2D.gd" type="Script" id=4]
+[ext_resource path="res://characters/commons/Health.gd" type="Script" id=5]
+[ext_resource path="res://characters/Player/gui/CooldownBar.tscn" type="PackedScene" id=6]
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 140, 140 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 140, 0, 140, 140 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 280, 0, 140, 140 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 2 )
+region = Rect2( 420, 0, 140, 140 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 2 )
+region = Rect2( 560, 0, 140, 140 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 2 )
+region = Rect2( 700, 0, 140, 140 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 2 )
+region = Rect2( 840, 0, 140, 140 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 2 )
+region = Rect2( 980, 0, 140, 140 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 2 )
+region = Rect2( 1120, 0, 140, 140 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 2 )
+region = Rect2( 1260, 0, 140, 140 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 2 )
+region = Rect2( 1400, 0, 140, 140 )
+
+[sub_resource type="SpriteFrames" id=14]
+animations = [ {
+"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 10.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10, 19 )
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[node name="Player" type="KinematicBody2D"]
+script = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 14 )
+animation = "Idle"
+frame = 1
+playing = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -6 )
+shape = SubResource( 2 )
+
+[node name="Physics2D" type="Node2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="Momentum" type="Node2D" parent="."]
+script = ExtResource( 3 )
+
+[node name="Health" type="Node2D" parent="."]
+script = ExtResource( 5 )
+
+[node name="CooldownTimer" type="Timer" parent="."]
+
+[node name="CooldownBar" parent="." instance=ExtResource( 6 )]
+
+[node name="State" type="Node2D" parent="."]
+
+[node name="Idle" type="Node2D" parent="State"]
+
+[node name="Move" type="Node2D" parent="State"]
+
+[node name="Jump" type="Node2D" parent="State"]
+
+[node name="DoubleJump" type="Node2D" parent="State"]
+
+[node name="Fall" type="Node2D" parent="State"]
+
+[node name="AttackLight" type="Node2D" parent="State"]
+visible = false
+
+[node name="DamageZone" type="Area2D" parent="State/AttackLight"]
+
+[node name="HitBox" type="CollisionShape2D" parent="State/AttackLight/DamageZone"]
+shape = SubResource( 1 )
+
+[node name="Slash" type="Node2D" parent="State/AttackLight"]
+
+[node name="AttackMedium" type="Node2D" parent="State"]
+visible = false
+
+[node name="DamageZone" type="Area2D" parent="State/AttackMedium"]
+
+[node name="HitBox" type="CollisionShape2D" parent="State/AttackMedium/DamageZone"]
+shape = SubResource( 1 )
+
+[node name="Slash" type="Node2D" parent="State/AttackMedium"]
+
+[node name="AttackHeavy" type="Node2D" parent="State"]
+visible = false
+
+[node name="DamageZone" type="Area2D" parent="State/AttackHeavy"]
+
+[node name="HitBox" type="CollisionShape2D" parent="State/AttackHeavy/DamageZone"]
+shape = SubResource( 1 )
+
+[node name="Slash" type="Node2D" parent="State/AttackHeavy"]
+
+[node name="AttackAirLight" type="Node2D" parent="State"]
+visible = false
+
+[node name="DamageZone" type="Area2D" parent="State/AttackAirLight"]
+
+[node name="HitBox" type="CollisionShape2D" parent="State/AttackAirLight/DamageZone"]
+shape = SubResource( 1 )
+
+[node name="Slash" type="Node2D" parent="State/AttackAirLight"]
+
+[node name="AttackAirMedium" type="Node2D" parent="State"]
+visible = false
+
+[node name="DamageZone" type="Area2D" parent="State/AttackAirMedium"]
+
+[node name="HitBox" type="CollisionShape2D" parent="State/AttackAirMedium/DamageZone"]
+shape = SubResource( 1 )
+
+[node name="Slash" type="Node2D" parent="State/AttackAirMedium"]
+
+[node name="AttackAirHeavy" type="Node2D" parent="State"]
+visible = false
+
+[node name="DamageZone" type="Area2D" parent="State/AttackAirHeavy"]
+
+[node name="HitBox" type="CollisionShape2D" parent="State/AttackAirHeavy/DamageZone"]
+shape = SubResource( 1 )
+
+[node name="Slash" type="Node2D" parent="State/AttackAirHeavy"]
+
+[node name="AttackAirHeavyGrounded" type="Node2D" parent="State"]
+visible = false
+
+[node name="DamageZone" type="Area2D" parent="State/AttackAirHeavyGrounded"]
+
+[node name="HitBox" type="CollisionShape2D" parent="State/AttackAirHeavyGrounded/DamageZone"]
+shape = SubResource( 1 )
+
+[node name="Slash" type="Node2D" parent="State/AttackAirHeavyGrounded"]
+
+[node name="CombatIdle" type="Node2D" parent="State"]
+
+[node name="CombatIdleTimer" type="Timer" parent="State/CombatIdle"]
+
+[node name="GettingHit" type="Node2D" parent="State"]
+
+[node name="Death" type="Node2D" parent="State"]
+
+[node name="Explosion" type="Node2D" parent="State/Death"]
+
+[node name="WaitForAlertBox" type="Node2D" parent="State"]

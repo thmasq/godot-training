@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://characters/Player/gui/CooldownBar.gd" type="Script" id=1]
+[ext_resource path="res://characters/Player/gui/assets/lifebar_fill.png" type="Texture" id=2]
+
+[node name="CooldownBar" type="TextureProgress"]
+visible = false
+modulate = Color( 0.141176, 0.415686, 0.839216, 1 )
+margin_right = 40.0
+margin_bottom = 40.0
+value = 100.0
+texture_progress = ExtResource( 2 )
+script = ExtResource( 1 )
+COLOR = Color( 0.141176, 0.415686, 0.839216, 1 )
+
+[node name="Tween" type="Tween" parent="."]
