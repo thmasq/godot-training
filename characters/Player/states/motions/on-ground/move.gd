@@ -1,16 +1,26 @@
-extends Node
+extends OnGround
+
+# pixels/sec
+export (int) var SPEED:= 125
+export (int) var ACCELERATION:= 1
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+func enter(host: Character) -> void:
+	host.get_node('AnimationPlayer').play('Move')
+	host.snap_enable = true
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func exit(host: Character) -> void:
+	host.snap_enable = false
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+#warning-ignore:unused_argument
+func update(host: Character, delta: float) -> void:
+	var input_direction: Vector2 = get_input_direction()
+	update_look_direction(host, get_input_direction())
+	if not input_direction:
+		emit_signal('finished', 'Idle')
+	if not host.is_grounded:
+		emit_signal('finished', 'Fall')
+	
+	move(host, input_direction, SPEED, ACCELERATION)

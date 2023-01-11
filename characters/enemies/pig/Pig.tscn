@@ -68,7 +68,6 @@ extents = Vector2( 10.5, 12.5 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 12 )
 animation = "idle"
-frame = 6
 playing = true
 flip_h = true
 

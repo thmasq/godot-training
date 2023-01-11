@@ -1,16 +1,27 @@
-extends Node
+extends OnGround
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+func enter(host: Player) -> void:
+	host.get_node('AnimationPlayer').play('CombatIdle')
+	host.velocity.x = 0
+	host.can_attack = false
+	host.start_cooldown()
+	$CombatIdleTimer.start()
+  
+
+#warning-ignore:unused_argument
+func exit(host: Player) -> void:
+	$CombatIdleTimer.stop()
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+#warning-ignore:unused_argument
+#warning-ignore:unused_argument
+func update(host: Player, delta: float) -> void:
+	var input_direction: Vector2 = get_input_direction()
+	if input_direction.x:
+		emit_signal('finished', 'Move')
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _on_CombatIdleTimer_timeout():
+	$CombatIdleTimer.stop()
+	emit_signal('finished', 'TidySword')
