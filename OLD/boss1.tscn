@@ -1,7 +1,7 @@
 [gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://CharacterSprites/Enemy/EnemyIdle.png" type="Texture" id=1]
-[ext_resource path="res://boss1.gd" type="Script" id=2]
+[ext_resource path="res://OLD/boss1.gd" type="Script" id=2]
 [ext_resource path="res://CharacterSprites/Enemy/EnemyJump.png" type="Texture" id=3]
 [ext_resource path="res://CharacterSprites/Enemy/EnemyRun.png" type="Texture" id=4]
 [ext_resource path="res://CharacterSprites/Enemy/EnemyAttack3.png" type="Texture" id=5]

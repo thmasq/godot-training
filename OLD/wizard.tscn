@@ -2,7 +2,7 @@
 
 [ext_resource path="res://CharacterSprites/Wizard/WizardIdle.png" type="Texture" id=1]
 [ext_resource path="res://CharacterSprites/Wizard/WizardRun.png" type="Texture" id=2]
-[ext_resource path="res://wizard.gd" type="Script" id=3]
+[ext_resource path="res://OLD/wizard.gd" type="Script" id=3]
 [ext_resource path="res://CharacterSprites/Wizard/WizardAttack1.png" type="Texture" id=4]
 [ext_resource path="res://CharacterSprites/Wizard/WizardJump.png" type="Texture" id=5]
 [ext_resource path="res://CharacterSprites/Wizard/WizardAttack2.png" type="Texture" id=6]
