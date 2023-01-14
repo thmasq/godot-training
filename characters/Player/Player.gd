@@ -14,9 +14,13 @@ var previous_position: Vector2 = Vector2()
 
 func _ready() -> void:
 	# Signals
+# warning-ignore:return_value_discarded
 	$AnimationPlayer.connect('animation_finished', self, '_on_Animation_finished')
+# warning-ignore:return_value_discarded
 	$Health.connect('take_damage', self, '_on_Getting_hit')
+# warning-ignore:return_value_discarded
 	$States/Death/Explosion.connect('exploded', self, '_on_Player_death')
+# warning-ignore:return_value_discarded
 	$CooldownTimer.connect('timeout', self, '_on_Cooldown_timeout')
 	$CooldownBar.set_duration($CooldownTimer.wait_time)
 	
