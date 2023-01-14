@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://TileMap.tscn" type="PackedScene" id=1]
-[ext_resource path="res://knight.tscn" type="PackedScene" id=2]
-[ext_resource path="res://wizard.tscn" type="PackedScene" id=3]
-[ext_resource path="res://boss1.tscn" type="PackedScene" id=4]
-[ext_resource path="res://spike.tscn" type="PackedScene" id=5]
+[ext_resource path="res://OLD/TileMap.tscn" type="PackedScene" id=1]
+[ext_resource path="res://OLD/knight.tscn" type="PackedScene" id=2]
+[ext_resource path="res://OLD/wizard.tscn" type="PackedScene" id=3]
+[ext_resource path="res://OLD/boss1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://OLD/spike.tscn" type="PackedScene" id=5]
 
 [node name="World" type="Node2D"]
 position = Vector2( 17, 52 )
