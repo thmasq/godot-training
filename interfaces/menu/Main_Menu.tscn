@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://OtherAssets/Sprites/7628303.png" type="Texture" id=1]
+[ext_resource path="res://interfaces/menu/assets/7628303.png" type="Texture" id=1]
 [ext_resource path="res://fonts/PixelColeco-4vJW.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://interfaces/menu/Main_Menu.gd" type="Script" id=3]
 

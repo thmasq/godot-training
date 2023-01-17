@@ -24,11 +24,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://characters/Player/states/motions/combat/attack.gd"
 }, {
-"base": "Reference",
-"class": "Boss",
-"language": "GDScript",
-"path": "res://OLD/boss1.gd"
-}, {
 "base": "KinematicBody2D",
 "class": "Character",
 "language": "GDScript",
@@ -38,11 +33,6 @@ _global_script_classes=[ {
 "class": "DamageZone",
 "language": "GDScript",
 "path": "res://characters/commons/DamageZone.gd"
-}, {
-"base": "Reference",
-"class": "Damage_Item",
-"language": "GDScript",
-"path": "res://OLD/spike.gd"
 }, {
 "base": "State",
 "class": "Death",
@@ -73,11 +63,6 @@ _global_script_classes=[ {
 "class": "Interaction",
 "language": "GDScript",
 "path": "res://environment/props/Door.gd"
-}, {
-"base": "Reference",
-"class": "Knight",
-"language": "GDScript",
-"path": "res://OLD/knight.gd"
 }, {
 "base": "Node2D",
 "class": "Momentum",
@@ -113,35 +98,26 @@ _global_script_classes=[ {
 "class": "State",
 "language": "GDScript",
 "path": "res://characters/commons/states/state.gd"
-}, {
-"base": "Reference",
-"class": "Wizard",
-"language": "GDScript",
-"path": "res://OLD/wizard.gd"
 } ]
 _global_script_class_icons={
 "AirAttack": "",
 "AlertBox": "",
 "Attack": "",
-"Boss": "",
 "Character": "",
 "DamageZone": "",
-"Damage_Item": "",
 "Death": "",
 "Draw": "",
 "GettingHit": "",
 "Health": "",
 "InAir": "",
 "Interaction": "",
-"Knight": "",
 "Momentum": "",
 "Motion": "",
 "OnGround": "",
 "Physics2D": "",
 "Player": "",
 "SlashDamageZone": "",
-"State": "",
-"Wizard": ""
+"State": ""
 }
 
 [application]
